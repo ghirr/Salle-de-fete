@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouvelle Réservation{% endblock %}
+
+{% block body %}
+    {% include 'header.html.twig'  %}
+    
+    <div class="mama">
+        <h1 style="position: relative; padding-top: 100px; color: #1d0007; margin-bottom: 0.5rem; font-weight: 500; line-height: 1.2; ">Réserver</h1>
+        {{ form_start(form) }}
+        <div class="formbold-input-wrapp">
+            {{ form_row(form.nom, { 'label': 'Nom' }) }}
+            {% if form.nom.vars.errors|length > 0 %}
+                <div class="error-message" style="color: red;">{{ form.nom.vars.errors[0].message }}</div>
+            {% endif %}
+        </div>
+        <div class="formbold-input-wrapp">
+            {{ form_row(form.cin, { 'label': 'CIN' }) }}
+            {% if form.cin.vars.errors|length > 0 %}
+                <div class="error-message" style="color: red;">{{ form.cin.vars.errors[0].message }}</div>
+            {% endif %}
+        </div>
+        <div class="formbold-input-wrapp">
+            {{ form_row(form.numeroTelephone, { 'label': 'NUM' }) }}
+            {% if form.numeroTelephone.vars.errors|length > 0 %}
+                <div class="error-message" style="color: red;">{{ form.numeroTelephone.vars.errors[0].message }}</div>
+            {% endif %}
+        </div>
+        <div class="formbold-input-wrapp">
+            {{ form_row(form.email, { 'label': 'Email' }) }}
+            {% if form.email.vars.errors|length > 0 %}
+                <div class="error-message" style="color: red;">{{ form.email.vars.errors[0].message }}</div>
+            {% endif %}
+        </div>
+        <div class="formbold-input-wrapp">
+            {{ form_row(form.nomSalle, { 'label': 'Nom Salle' }) }}
+            {% if form.nomSalle.vars.errors|length > 0 %}
+                <div class="error-message" style="color: red;">{{ form.nomSalle.vars.errors[0].message }}</div>
+            {% endif %}
+        </div>
+        <div class="formbold-input-wrapp">
+            {{ form_widget(form.Reserver, {'attr': {'class': 'formbold-btn', 'id': 'reserverButton' }}) }}
+        </div>
+        {{ form_end(form) }}
+    </div>
+
+
+{% endblock %}
+

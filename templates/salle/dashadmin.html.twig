@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dash Admin{% endblock %}
+
+{% block body %}
+  {% include 'headerAdmin.html.twig'  %}
+<div class="section-top-border">
+    <h1 class="h1 text-center text-dark">Admin</h1>
+    <div class="progress-table-wrap">
+        <div class="progress-table">
+            <div class="table-head">
+            <div class="visit">Id</div>
+                <div class="visit">Name</div>
+                <div class="country">Image</div>
+                <div class="visit">Category</div>
+                <div class="visit">description</div>
+                <div class="visit">Delete</div>
+                <div class="visit">Edit</div>
+            </div>
+            {% for salle in salles %}
+            <div class="table-row">
+            <div class="visit" style="color:rgb(168, 100, 100);"><b>{{ salle.getId() }}</b></div>
+                <div class="visit" style="color:rgb(168, 100, 100);"><b>{{ salle.getNom() }}</b></div>
+                <div class="country"> <img src="{{ salle.getImagePath() }}" style="height: 120px; width: 140px;margin-left: 5px;"></div>
+                <div class="visit">{{ salle.getCapacite }}</div>
+                <div class="visit">description</div>
+                <div class="visit">
+                  <div class="visit">
+    <button class="btn btn-danger delete-salle" data-url="{{ path('supprimer_salle', {'id': salle.getId()}) }}">Delete</button>
+</div>
+
+                </div>
+                <div class="visit">
+                    <a href="{{ path('modifier_salle', {'id': salle.getId()}) }}" class="btn btn-info">Edit</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

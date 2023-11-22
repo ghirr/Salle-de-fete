@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Liste Salle!{% endblock %}
+
+{% block body %}
+  {% include 'header.html.twig'  %}
+<div id="parallax-world-of-ugg">
+    {% for salle in salles %}
+    <section>
+         <div class="parallax-one" style="background-image: url({{ salle.getImagePath() }});">
+           <h2> {{ salle.getNom() }}</h2>
+        </div>
+    </section>
+
+    <section>
+        <div class="block">
+            <p>
+            <h1><b>Capacité:<b></h1>{{ salle.getCapacite }}
+            <h1><b>Description:<b></h1>{{ salle.getDescription }}
+            </p>
+             <a href="{{ path('reservation_new', {'Nom_de_la_salle': salle.getNom()}) }}" class="btn btn-danger">Réserver salle</a>
+            <!-- Ajoutez ici d'autres informations à afficher pour chaque salle -->
+        </div>
+    </section>
+    {% endfor %}
+</div>
+{% if app.request.query.has('reservationRedirect') %}
+    <script src="{{ asset('flashMessage.js') }}"></script>
+{% endif %}
+
+
+{% endblock %}

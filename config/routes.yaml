@@ -1,0 +1,30 @@
+controllers:
+    resource: ../src/Controller/
+    type: attribute
+
+app_modifier_salle:
+    path: /modifier/{id}
+    controller: App\Controller\SalleController::modifierSalle
+    methods: [GET, POST]
+supprimer_salle:
+    path: /supprimer/{id}
+    controller: App\Controller\SalleController::supprimerSalle
+    methods: [DELETE]
+app_admin:
+    resource: ../src/Controller/AdminController.php
+    type: annotation
+app_login:
+    path: /login
+    controller: App\Controller\AdminController::login
+    methods: [GET, POST]
+
+app_logout:
+    path: /logout
+    controller: App\Controller\AdminController::logout
+    methods: [GET]
+app_dash:
+    path: /dash
+    controller: App\Controller\DashboardController::dashboardAction
+    methods: [GET]
+
+

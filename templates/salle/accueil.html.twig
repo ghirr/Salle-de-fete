@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('form.css') }}">
+    <link rel="stylesheet" href="{{ asset('salle.css') }}">
+    <link rel="stylesheet" href="{{ asset('header.css') }}">
+{% endblock %}
+
+{% block body %}
+  {% include 'header.html.twig'  %}
+ <!-- ======= Hero Section ======= -->
+ <section id="hero" class="d-flex align-items-center">
+    <div class="container d-flex flex-column align-items-center" data-aos="zoom-in" data-aos-delay="100">
+      <h1>Welcome To Baya</h1>
+      <h2>la fameuse company des salles de fete que de luxe </h2>
+      <a href="{{ path('app_liste') }}" class="btn-about">Voir Salles</a>
+    </div>
+  </section><!-- End Hero -->
+
+  <!-- Rest of your content goes here -->
+
+{% endblock %}
+

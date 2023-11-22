@@ -1,0 +1,30 @@
+<!-- templates/header.html.twig -->
+<header id="header" class="fixed-top">
+    <div class="container-fluid d-flex justify-content-between align-items-center">
+        <h1 class="logo me-auto me-lg-0"><a href="{{ path('app_login') }}">baya</a></h1>
+        <nav id="navbar" class="navbar order-last order-lg-0">
+            <ul>
+                <li{% if app.request.attributes.get('_route') == 'accueil' %} class="active"{% endif %}>
+                    <a href="{{ path('accueil') }}" {% if app.request.attributes.get('_route') == 'accueil' %} class="active"{% endif %}>Accueil</a>
+                </li>
+                <li{% if app.request.attributes.get('_route') == 'app_liste' or app.request.attributes.get('_route') == 'autre_route' %} class="active"{% endif %}>
+                    <a href="{{ path('app_liste') }}" {% if app.request.attributes.get('_route') == 'app_liste' or app.request.attributes.get('_route') == 'autre_route' %} class="active"{% endif %}>Liste Salle</a>
+                </li>
+                   <!-- <li{% if app.request.attributes.get('_route') == 'app_salle' %} class="active"{% endif %}>
+                        <a href="{{ path('app_salle') }}" {% if app.request.attributes.get('_route') == 'app_salle' %} class="active"{% endif %}>Ajouter Salle</a>
+                    </li>-->
+                    <li{% if app.request.attributes.get('_route') == 'admin' %} class="active"{% endif %}>
+                        <a href="{{ path('admin') }}" {% if app.request.attributes.get('_route') == 'admin' %} class="active"{% endif %}>Dashboard Admin</a>
+                    </li> 
+            </ul>
+        </nav>
+
+
+        <div class="header-social-links">
+            <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+        </div>
+    </div>
+</header>

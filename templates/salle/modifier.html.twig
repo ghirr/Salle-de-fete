@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modifier Salle{% endblock %}
+
+{% block body %}
+
+  <h1 style="
+  position:relative;
+  padding-top:100px;
+    color: #1d0007;
+              margin-bottom: 0.5rem;
+              font-weight: 500;
+              line-height: 1.2;
+              padding-left:570px;">Modifier Salle</h1>
+  <div class="formbold-form-wrapper">
+    {{ form_start(formSalle) }}
+    <div class="formbold-input-flex">
+      <div class="formbold-w-45">
+        {{ form_label(formSalle.nom, 'Nom', {'label_attr': {'class': 'formbold-form-label'}}) }}
+        {{ form_widget(formSalle.nom, {'attr': {'class': 'formbold-form-input'}}) }}
+      </div>
+      <div class="formbold-w-45">
+        {{ form_label(formSalle.capacite, 'Capacité', {'label_attr': {'class': 'formbold-form-label'}}) }}
+        {{ form_widget(formSalle.capacite, {'attr': {'class': 'formbold-form-input'}}) }}
+      </div>
+    </div>
+    <div class="formbold-input-wrapp">
+      {{ form_label(formSalle.description, 'Description', {'label_attr': {'class': 'formbold-form-label'}}) }}
+      {{ form_widget(formSalle.description, {'attr': {'class': 'formbold-form-input'}}) }}
+    </div>
+    <div class="formbold-input-wrapp">
+      {{ form_label(formSalle.image_path, 'Image', {'label_attr': {'class': 'formbold-form-label'}}) }}
+      {{ form_widget(formSalle.image_path, {'attr': {'class': 'formbold-form-input'}, 'full_name': 'formSalle[image_path]'}) }}
+      {% if formSalle.image_path.vars.value %}
+          <img src="{{ asset(formSalle.image_path.vars.value) }}" alt="Salle Image">
+      {% endif %}
+    </div>
+    <div class="formbold-input-wrapp">
+      {{ form_widget(formSalle.valider, {'attr': {'class': 'formbold-btn'}}) }}
+    </div>
+    {{ form_end(formSalle) }}
+  </div>
+{% endblock %}
